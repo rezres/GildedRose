@@ -18,6 +18,10 @@
                 return new TicketItemUpdate();
             }
 
+            if (isConjuredItem(item))
+            {
+                return new ConjuredItemUpdate();
+            }
             return new DefaultItemUpdate();
         }
 
@@ -36,6 +40,11 @@
         private bool isBackstagePass(Item item)
         {
             return item.Name == "Backstage passes to a TAFKAL80ETC concert";
+        }
+
+        private bool isConjuredItem(Item item)
+        {
+            return item.Name.StartsWith("Conjured");
         }
     }
 }
